@@ -31,12 +31,15 @@ pnpm dev
 
 Ou executar cada uma individualmente:
 
-**Frontend (React/Vite):**
+**Frontend (React/Vite + Tailwind):**
 ```bash
-pnpm web:dev      # Inicia dev server
-pnpm web:build    # Build de produção
-pnpm web:preview  # Preview do build
-pnpm web:lint     # Lint do código
+pnpm web:dev         # Inicia dev server
+pnpm web:build       # Build de produção
+pnpm web:preview     # Preview do build
+pnpm web:lint        # Lint do código
+pnpm web:test        # Roda testes (uma vez)
+pnpm web:test:watch  # Roda testes em watch mode
+pnpm web:test:ui     # Dashboard interativo de testes
 ```
 
 **Backend (NestJS):**

@@ -13,6 +13,9 @@
     "web:build": "pnpm --filter web build",
     "web:preview": "pnpm --filter web preview",
     "web:lint": "pnpm --filter web lint",
+    "web:test": "pnpm --filter web test:run",
+    "web:test:watch": "pnpm --filter web test",
+    "web:test:ui": "pnpm --filter web test:ui",
     "api:dev": "pnpm --filter api start:dev",
     "api:build": "pnpm --filter api build",
     "api:start": "pnpm --filter api start",
@@ -21,6 +24,7 @@
     "dev": "pnpm -r --parallel dev start:dev",
     "build": "pnpm -r build",
     "test": "pnpm -r test",
+    "test:watch": "pnpm -r --parallel test:watch",
     "test:e2e": "pnpm --filter api test:e2e"
   }
 }
