@@ -3,22 +3,26 @@ import clsx from 'clsx';
 /**
  * Button component
  * @param {Object} props
- * @param {string} [props.variant='primary'] - Button style variant
+ * @param {'primary'|'secondary'|'danger'} [props.variant='primary'] - Button style variant
+ * @param {boolean} [props.fullWidth=false] - Stretch to the container width
  * @param {boolean} [props.disabled=false] - Disabled state
- * @param {React.ReactNode} props.children - Button content
+ * @param {React.ReactNode} props.children - Button content (text and/or icon)
  */
 export function Button({
   variant = 'primary',
+  fullWidth = false,
   disabled = false,
   className,
   ...props
 }) {
-  const baseStyles = 'px-4 py-2 rounded font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles =
+    'inline-flex items-center justify-center gap-2 px-4 py-2 rounded font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
 
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+    primary: 'bg-accent text-surface hover:brightness-110 focus-visible:ring-accent',
+    secondary:
+      'border border-accent text-accent hover:bg-accent/10 focus-visible:ring-accent',
+    danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500',
   };
 
   return (
@@ -27,6 +31,7 @@ export function Button({
         baseStyles,
         variants[variant],
         {
+          'w-full': fullWidth,
           'opacity-50 cursor-not-allowed': disabled,
         },
         className

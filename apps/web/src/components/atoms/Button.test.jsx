@@ -11,13 +11,13 @@ describe('Button', () => {
   it('applies primary variant by default', () => {
     render(<Button>Submit</Button>);
     const button = screen.getByText('Submit');
-    expect(button).toHaveClass('bg-blue-600', 'text-white');
+    expect(button).toHaveClass('bg-accent', 'text-surface');
   });
 
   it('applies secondary variant when specified', () => {
     render(<Button variant="secondary">Cancel</Button>);
     const button = screen.getByText('Cancel');
-    expect(button).toHaveClass('bg-gray-200', 'text-gray-800');
+    expect(button).toHaveClass('border-accent', 'text-accent');
   });
 
   it('applies danger variant when specified', () => {
@@ -51,5 +51,21 @@ describe('Button', () => {
     render(<Button className="custom-class">Styled</Button>);
     const button = screen.getByText('Styled');
     expect(button).toHaveClass('custom-class');
+  });
+
+  it('stretches to full width when fullWidth is set', () => {
+    render(<Button fullWidth>Wide</Button>);
+    expect(screen.getByRole('button', { name: 'Wide' })).toHaveClass('w-full');
+  });
+
+  it('renders an icon alongside the text', () => {
+    render(
+      <Button>
+        Login <svg data-testid="icon" />
+      </Button>
+    );
+    const button = screen.getByRole('button', { name: 'Login' });
+    expect(button).toHaveClass('inline-flex', 'gap-2');
+    expect(screen.getByTestId('icon')).toBeInTheDocument();
   });
 });
