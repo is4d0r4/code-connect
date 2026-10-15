@@ -1,5 +1,11 @@
-import { LoginPage } from './components/pages';
+import { LoginPage, RegisterPage } from './components/pages';
+
+// Minimal path-based routing until a router is added.
+const ROUTES = {
+  '/cadastro': RegisterPage,
+};
 
 export default function App() {
-  return <LoginPage />;
+  const Page = ROUTES[window.location.pathname] ?? LoginPage;
+  return <Page />;
 }

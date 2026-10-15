@@ -27,3 +27,20 @@ describe('AuthTemplate', () => {
     marks.forEach((mark) => expect(mark).toHaveAttribute('aria-hidden', 'true'));
   });
 });
+
+describe('AuthTemplate banner options', () => {
+  it('renders the banner overlay and extra banner classes', () => {
+    render(
+      <AuthTemplate
+        bannerSrc="/banner.png"
+        bannerAlt="Banner"
+        bannerClassName="object-[60%_center]"
+        bannerOverlay={<span>Logo</span>}
+      >
+        <p>x</p>
+      </AuthTemplate>
+    );
+    expect(screen.getByRole('img', { name: 'Banner' })).toHaveClass('object-[60%_center]');
+    expect(screen.getByText('Logo')).toBeInTheDocument();
+  });
+});

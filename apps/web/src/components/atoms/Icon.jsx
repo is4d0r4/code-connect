@@ -2,7 +2,7 @@
  * Inline SVG icon set. Uses `currentColor`, so color it with text-* classes.
  * Decorative by default (aria-hidden); pass `title` to expose it to assistive tech.
  * @param {Object} props
- * @param {'arrow-right'|'clipboard'|'chain'} props.name - Icon to render
+ * @param {'arrow-right'|'clipboard'|'login'|'chain'} props.name - Icon to render
  * @param {string} [props.title] - Accessible name; when set, the icon is not hidden
  * @param {string} [props.className] - Size/color classes
  */
@@ -50,6 +50,16 @@ const ICONS = {
         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
         <path d="M9 12h6" />
         <path d="M9 16h6" />
+      </g>
+    ),
+  },
+  login: {
+    viewBox: '0 0 24 24',
+    content: (
+      <g strokeWidth="2">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+        <path d="m10 17 5-5-5-5" />
+        <path d="M15 12H3" />
       </g>
     ),
   },

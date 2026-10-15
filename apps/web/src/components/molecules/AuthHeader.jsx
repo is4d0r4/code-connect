@@ -9,9 +9,9 @@ import clsx from 'clsx';
  */
 export function AuthHeader({ title, subtitle, className }) {
   return (
-    <header className={clsx('flex flex-col gap-2', className)}>
-      <h1 className="text-3xl font-semibold text-offwhite">{title}</h1>
-      {subtitle && <p className="text-lg text-offwhite">{subtitle}</p>}
+    <header className={clsx('flex flex-col gap-6', className)}>
+      <h1 className="text-[31px] leading-normal font-semibold text-offwhite">{title}</h1>
+      {subtitle && <p className="text-[22px] leading-normal text-offwhite">{subtitle}</p>}
     </header>
   );
 }

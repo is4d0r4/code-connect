@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Icon } from '../atoms';
 
 /**
@@ -6,9 +7,11 @@ import { Icon } from '../atoms';
  * @param {Object} props
  * @param {string} props.bannerSrc - Banner image URL (left column)
  * @param {string} props.bannerAlt - Banner alt text
+ * @param {string} [props.bannerClassName] - Extra classes for the banner image (e.g. object position)
+ * @param {React.ReactNode} [props.bannerOverlay] - Content laid over the bottom of the banner (e.g. a logo)
  * @param {React.ReactNode} props.children - Right column content
  */
-export function AuthTemplate({ bannerSrc, bannerAlt, children }) {
+export function AuthTemplate({ bannerSrc, bannerAlt, bannerClassName, bannerOverlay, children }) {
   return (
     <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-page px-4 py-10">
       <Icon
@@ -26,8 +29,13 @@ export function AuthTemplate({ bannerSrc, bannerAlt, children }) {
           <img
             src={bannerSrc}
             alt={bannerAlt}
-            className="absolute inset-0 h-full w-full object-cover"
+            className={clsx('absolute inset-0 h-full w-full object-cover', bannerClassName)}
           />
+          {bannerOverlay && (
+            <div className="absolute inset-x-0 bottom-[35px] flex justify-center">
+              {bannerOverlay}
+            </div>
+          )}
         </div>
         <div className="flex flex-col justify-center gap-8 p-8 md:px-12 md:py-14">
           {children}
